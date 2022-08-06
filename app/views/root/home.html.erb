@@ -1,0 +1,66 @@
+<%= render "head" %>
+
+<%= link_to "go to res page", res_path %>
+<p>
+<%= res_path %>
+</p>
+<p>
+<%= res_url %>
+</p>
+<h1>To Do List</h1>
+<form class="col-md-6 p-5" method="POST" action="/add">
+  <%= token_tag %>
+    <div class="form-group">
+    <label for="titleid">title</label>
+    <input name="title" type="text" class="form-control" id="titleid" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="desid">des</label>
+    <input name="des" type="test" row="3" class="form-control" id="desid" >
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<hr>
+
+<form method="GET" action="/search" >
+  <input type="text" name="query" method="GET"/>
+  <button type="submit">search</button>
+</form>
+
+<hr>
+<table class="table" >
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |i| %>
+      <tr>
+
+        <td><%= i.title %></td>
+        <td><%= i.des %></td>
+        <td>
+          <button class="btn btn-danger test-dark">
+            <a href="/delete/<%= i.id %>" data-method="delete">
+              Delete <i class="fa-solid fa-trash-can"></i>
+            </a>
+          </button>
+          <button class="btn btn-success test-dark">
+            <a href="/update/<%= i.id %>">
+              Update
+            </a>
+          </button>
+        </td>
+ 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render "foot" %>

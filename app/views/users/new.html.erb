@@ -1,0 +1,11 @@
+<h1> sign up / register</h1>
+
+<form method="POST" action="<%= register_path %>">
+<%= token_tag %>
+    <lable for="username"> user name</lable>
+    <input id="username" type="text" name="username" required>
+    <lable for="pass"> Password</lable>
+    <input id="pass" type="text" name="pass" required>
+
+    <input type="submit" value="register">
+</form>

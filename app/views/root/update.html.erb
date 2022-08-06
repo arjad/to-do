@@ -1,0 +1,20 @@
+<%= @title %>
+<%= @des %>
+
+<h2>Update page</h2>
+<form class="col-md-6 p-5" method="POST" action="/updatedform">
+    <input type="hidden" name="id" value="<%= @id %>">
+#   <%= token_tag %>
+    <div class="form-group">
+    <label for="titleid">title</label>
+    <input value="<%=@title %>" name="title" type="text" class="form-control" id="titleid" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="desid">des</label>
+    <input value="<%= @des %>" name="des" type="test" row="3" class="form-control" id="desid" >
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<hr>
